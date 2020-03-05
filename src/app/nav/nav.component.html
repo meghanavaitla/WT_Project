@@ -1,0 +1,15 @@
+<mat-toolbar class="nav">
+  <img class="logo" src="https://image.flaticon.com/icons/png/128/868/868784.png">
+    <span style="font-family:  serif; font-style: italic;"> NCRP</span> 
+   <div class="spacer"></div>
+   <a mat-button routerLink="home">Home</a>
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item >Softwareservices</button>
+    <button mat-menu-item>Hardwareservices</button>
+    <button mat-menu-item>Networkservices</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="appMenu">Services</button>
+   <a mat-button routerLink="aboutus">About Us</a>
+   <a mat-raised-button routerLink="login">Login</a>
+   
+</mat-toolbar>

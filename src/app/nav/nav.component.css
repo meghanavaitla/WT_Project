@@ -1,0 +1,11 @@
+.spacer{
+    flex: 1 1 auto;
+}
+.logo
+{
+    height: 50%;
+    width: 2%;
+}
+.nav{
+    background-color:#ADEFD1FF ;
+}
