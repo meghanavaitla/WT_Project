@@ -1,16 +1,16 @@
 const express = require('express')
 
 var mongoose = require('mongoose');
-
+var cors =require('cors');
 var bodyParser = require('body-parser');
-
+var login=require('./backend/models/logindata');
 
 
 // ************************ DB Connection ************************
 
 var dbOptions = {useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true, auto_reconnect: true};
 
-mongoose.connect("mongodb+srv://Meghana_07:vnrvjiet@cluster0-lahh1.mongodb.net/WTProject?retryWrites=true&w=majority", dbOptions);
+mongoose.connect("mongodb+srv://Meghana_07:vnrvjiet@cluster0-lahh1.mongodb.net/NCRP?retryWrites=true&w=majority", dbOptions);
 
 mongoose.connection.on('connected', function(){
 
@@ -49,7 +49,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 
 app.use(bodyParser.json())
-
+app.use(cors());
 // ****** Body Parser ********
 
 
@@ -59,6 +59,32 @@ app.use(bodyParser.json())
 // *********************** Backend Routes **********************
 
 app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/api/login',(req,res)=>{
+    //console.log('gggggggggggError while getting login credentials from DB ');
+
+    login.find({},null,{limit:1},(err,docs)=>
+    {
+        if(err)
+        {
+        res.json({error:err});
+        console.log('Error while getting login credentials from DB ');
+        }
+        else
+        res.json(docs);
+    })
+})
+
+
+app.get("/login", (req,res)=>{
+    login.find({Emp_id:req.body.Emp_id,Pwd:req.body.Pwd},null, (err,docs)=>
+    {
+        if(err)
+        {
+        res.send("User not found.")
+        }
+        res.send("Logged in succesfully.")
+    }
+)});
 
 
 

@@ -1,15 +1,17 @@
 <mat-toolbar class="nav">
-  <img class="logo" src="https://image.flaticon.com/icons/png/128/868/868784.png">
-    <span style="font-family:  serif; font-style: italic;"> NCRP</span> 
+  <img class="logo" src="https://image.flaticon.com/icons/png/128/868/868784.png"><pre> </pre>
+    <span style="font-family:  serif; font-style: italic;" class="logo-name"> NCRP</span> 
    <div class="spacer"></div>
-   <a mat-button routerLink="home">Home</a>
+   <div class="links">
+   <a mat-button routerLink="home" class="home">Home</a>
   <mat-menu #appMenu="matMenu">
     <button mat-menu-item >Softwareservices</button>
     <button mat-menu-item>Hardwareservices</button>
     <button mat-menu-item>Networkservices</button>
   </mat-menu>
-  <button mat-button [matMenuTriggerFor]="appMenu">Services</button>
-   <a mat-button routerLink="aboutus">About Us</a>
-   <a mat-raised-button routerLink="login">Login</a>
+  <button mat-button [matMenuTriggerFor]="appMenu" class="services">Services</button>
+   <a mat-button routerLink="aboutus" class="aboutus">About Us</a>
+   <a mat-raised-button routerLink="login" class="login">Login</a>
+  </div>
    
 </mat-toolbar>
